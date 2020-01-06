@@ -12,7 +12,7 @@
 %->> Identification
 %---------------------------------------------------------------------------%
 \NeedsTeXFormat{LaTeX2e}%
-\ProvidesClass{ucasthesis}[2014/10/01 v1.0 LaTeX document class]%
+\ProvidesClass{shtuthesis}[2014/10/01 v1.0 LaTeX document class]%
 %---------------------------------------------------------------------------%
 %->> Declare options
 %---------------------------------------------------------------------------%
@@ -25,25 +25,25 @@
 \DeclareOption{twoside}{%
     \PassOptionsToClass{twoside}{ctexbook}%
 }
-\newif\ifucas@print \ucas@printfalse
+\newif\ifshtu@print \shtu@printfalse
 \DeclareOption{print}{%
     \PassOptionsToClass{twoside}{ctexbook}%
-    \ucas@printtrue%
+    \shtu@printtrue%
 }
 %-
 %-> Language
 %-
-\newif\ifucas@plain \ucas@plainfalse
+\newif\ifshtu@plain \shtu@plainfalse
 \DeclareOption{scheme=plain}{% enable plain writing style
     \PassOptionsToClass{scheme=plain}{ctexbook}%
-    \ucas@plaintrue%
+    \shtu@plaintrue%
 }
 %-
 %-> Draft version info
 %-
-\newif\ifucas@versioninfo \ucas@versioninfofalse
+\newif\ifshtu@versioninfo \shtu@versioninfofalse
 \DeclareOption{draftversion}{%
-    \ucas@versioninfotrue%
+    \shtu@versioninfotrue%
 }
 %-
 %-> Handle non-implemented options
@@ -64,11 +64,11 @@
 %---------------------------------------------------------------------------%
 \RequirePackage{ifxetex}% LaTeX engine detection
 \RequirePackage{etoolbox}% a toolbox of programming facilities
-\newcommand{\ucasifstreq}{\expandafter\ifstrequal\expandafter}% expansion control
-\newcommand{\ucasifstrbk}{\expandafter\ifblank\expandafter}% expansion control
+\newcommand{\shtuifstreq}{\expandafter\ifstrequal\expandafter}% expansion control
+\newcommand{\shtuifstrbk}{\expandafter\ifblank\expandafter}% expansion control
 \RequirePackage{expl3}% LaTeX3 programming environment
 \ExplSyntaxOn
-\newcommand{\ucaslntotab}[2][1pt]{% convert lines into table lines
+\newcommand{\shtulntotab}[2][1pt]{% convert lines into table lines
     \seq_set_split:NnV \l_tmpa_seq {\\} {#2}
     \clist_set_from_seq:NN \l_tmpa_clist \l_tmpa_seq
     \clist_clear:N \l_tmpb_clist
@@ -86,7 +86,7 @@
 %---------------------------------------------------------------------------%
 \AtEndOfPackage{% class cfg loaded after package to make preamble commands take effect
     \makeatletter
-    \InputIfFileExists{Style/ucasthesis.cfg}{}{}
+    \InputIfFileExists{Style/shtuthesis.cfg}{}{}
     \makeatother
 }
 %---------------------------------------------------------------------------%
@@ -102,7 +102,7 @@
 %- assuming A4 paper (210mm x 297mm)
 \setlength{\textwidth}{146.6mm}% set required text width first
 \setlength{\hoffset}{0mm}% set horizontal offset
-\ifucas@print% if print layout enabled
+\ifshtu@print% if print layout enabled
     \setlength{\oddsidemargin}{12.6mm}% binding side margin
     \setlength{\evensidemargin}{0mm}% ensure uniform binding side width for printing
 \else
@@ -157,120 +157,120 @@
 %-
 %-> Chinese item commands
 %-
-\def\ucas@value@ch@confidential{}
-\newcommand{\confidential}[1]{\def\ucas@value@ch@confidential{#1}}
-\def\ucas@value@ch@orderid{}
-\newcommand{\orderid}[1]{\def\ucas@value@ch@orderid{#1}}
-\def\ucas@value@ch@classid{}
-\newcommand{\classid}[1]{\def\ucas@value@ch@classid{#1}}
-\def\ucas@value@ch@udc{}
-\newcommand{\udc}[1]{\def\ucas@value@ch@udc{#1}}
-\def\ucas@value@ch@schoollogo{}
-\newcommand{\schoollogo}[2][]{\def\ucas@value@ch@schoollogo{\ucasifstrbk{#1}{\zihao{-2}\bfseries\sffamily #2}{\includegraphics[#1]{#2}}}}
-\def\ucas@value@ch@title{}
-\def\ucas@value@ch@titlemark{}
-\renewcommand{\title}[2][\ucas@value@ch@title]{%
-    \def\ucas@value@ch@title{#2}
-    %\def\ucas@value@ch@titlemark{\MakeUppercase{#1}}}
-    \def\ucas@value@ch@titlemark{#1}}
-\def\ucas@value@ch@author{}
-\renewcommand{\author}[1]{\def\ucas@value@ch@author{#1}}
-\def\ucas@value@ch@advisor{}
-\newcommand{\advisor}[1]{\long\def\ucas@value@ch@advisor{#1}}
-\def\ucas@value@ch@advisors{}
-\newcommand{\advisors}[1]{\long\def\ucas@value@ch@advisors{#1}}
-\def\ucas@value@ch@degree{}
-\newcommand{\degree}[1]{\def\ucas@value@ch@degree{#1}}
-\def\ucas@value@ch@degreetype{}
-\newcommand{\degreetype}[1]{\def\ucas@value@ch@degreetype{#1}}
-\def\ucas@value@ch@subject{}
-\newcommand{\subject}[1]{\def\ucas@value@ch@subject{#1}}
-\def\ucas@value@ch@major{}
-\newcommand{\major}[1]{\def\ucas@value@ch@major{#1}}
-\def\ucas@value@ch@institute{}
-\newcommand{\institute}[1]{\long\def\ucas@value@ch@institute{#1}}
-\def\ucas@value@ch@school{}
-\newcommand{\school}[1]{\def\ucas@value@ch@school{#1}}
-\def\ucas@value@ch@orginization{}
-\newcommand{\orginization}[1]{\def\ucas@value@ch@orginization{#1}}
-\def\ucas@value@ch@completedate{}
-\newcommand{\completedate}[1]{\def\ucas@value@ch@completedate{#1}}
-\def\ucas@value@ch@submitdate{}
-\newcommand{\submitdate}[1]{\def\ucas@value@ch@submitdate{#1}}
-\def\ucas@value@ch@studydatefrom{}
-\newcommand{\studydatefrom}[1]{\def\ucas@value@ch@studydatefrom{#1}}
-\def\ucas@value@ch@studydateto{}
-\newcommand{\studydateto}[1]{\def\ucas@value@ch@studydateto{#1}}
-\def\ucas@value@ch@date{}
-\renewcommand{\date}[1]{\def\ucas@value@ch@date{#1}}
+\def\shtu@value@ch@confidential{}
+\newcommand{\confidential}[1]{\def\shtu@value@ch@confidential{#1}}
+\def\shtu@value@ch@orderid{}
+\newcommand{\orderid}[1]{\def\shtu@value@ch@orderid{#1}}
+\def\shtu@value@ch@classid{}
+\newcommand{\classid}[1]{\def\shtu@value@ch@classid{#1}}
+\def\shtu@value@ch@udc{}
+\newcommand{\udc}[1]{\def\shtu@value@ch@udc{#1}}
+\def\shtu@value@ch@schoollogo{}
+\newcommand{\schoollogo}[2][]{\def\shtu@value@ch@schoollogo{\shtuifstrbk{#1}{\zihao{-2}\bfseries\sffamily #2}{\includegraphics[#1]{#2}}}}
+\def\shtu@value@ch@title{}
+\def\shtu@value@ch@titlemark{}
+\renewcommand{\title}[2][\shtu@value@ch@title]{%
+    \def\shtu@value@ch@title{#2}
+    %\def\shtu@value@ch@titlemark{\MakeUppercase{#1}}}
+    \def\shtu@value@ch@titlemark{#1}}
+\def\shtu@value@ch@author{}
+\renewcommand{\author}[1]{\def\shtu@value@ch@author{#1}}
+\def\shtu@value@ch@advisor{}
+\newcommand{\advisor}[1]{\long\def\shtu@value@ch@advisor{#1}}
+\def\shtu@value@ch@advisors{}
+\newcommand{\advisors}[1]{\long\def\shtu@value@ch@advisors{#1}}
+\def\shtu@value@ch@degree{}
+\newcommand{\degree}[1]{\def\shtu@value@ch@degree{#1}}
+\def\shtu@value@ch@degreetype{}
+\newcommand{\degreetype}[1]{\def\shtu@value@ch@degreetype{#1}}
+\def\shtu@value@ch@subject{}
+\newcommand{\subject}[1]{\def\shtu@value@ch@subject{#1}}
+\def\shtu@value@ch@major{}
+\newcommand{\major}[1]{\def\shtu@value@ch@major{#1}}
+\def\shtu@value@ch@institute{}
+\newcommand{\institute}[1]{\long\def\shtu@value@ch@institute{#1}}
+\def\shtu@value@ch@school{}
+\newcommand{\school}[1]{\def\shtu@value@ch@school{#1}}
+\def\shtu@value@ch@orginization{}
+\newcommand{\orginization}[1]{\def\shtu@value@ch@orginization{#1}}
+\def\shtu@value@ch@completedate{}
+\newcommand{\completedate}[1]{\def\shtu@value@ch@completedate{#1}}
+\def\shtu@value@ch@submitdate{}
+\newcommand{\submitdate}[1]{\def\shtu@value@ch@submitdate{#1}}
+\def\shtu@value@ch@studydatefrom{}
+\newcommand{\studydatefrom}[1]{\def\shtu@value@ch@studydatefrom{#1}}
+\def\shtu@value@ch@studydateto{}
+\newcommand{\studydateto}[1]{\def\shtu@value@ch@studydateto{#1}}
+\def\shtu@value@ch@date{}
+\renewcommand{\date}[1]{\def\shtu@value@ch@date{#1}}
 %-
 %-> English item commands
 %-
-\def\ucas@value@en@title{}
-\def\ucas@value@en@titlemark{}
-\newcommand{\TITLE}[2][\ucas@value@en@title]{%
-    \def\ucas@value@en@title{#2}
-    %\def\ucas@value@en@titlemark{\MakeUppercase{#1}}}
-    \def\ucas@value@en@titlemark{#1}}
-\def\ucas@value@en@author{}
-\newcommand{\AUTHOR}[1]{\def\ucas@value@en@author{#1}}
-\def\ucas@value@en@advisor{}
-\newcommand{\ADVISOR}[1]{\def\ucas@value@en@advisor{#1}}
-\def\ucas@value@en@degree{}
-\newcommand{\DEGREE}[1]{\edef\ucas@value@en@degree{\zap@space#1 \@empty}}% expand and remove space
-\def\ucas@value@en@degreetype{}
-\newcommand{\DEGREETYPE}[1]{\def\ucas@value@en@degreetype{#1}}
-\def\ucas@value@en@thesistype{}
-\newcommand{\THESISTYPE}[1]{\def\ucas@value@en@thesistype{#1}}
-\def\ucas@value@en@major{}
-\newcommand{\MAJOR}[1]{\def\ucas@value@en@major{#1}}
-\def\ucas@value@en@institute{}
-\newcommand{\INSTITUTE}[1]{\def\ucas@value@en@institute{#1}}
-\def\ucas@value@en@school{}
-\newcommand{\SCHOOL}[1]{\def\ucas@value@en@school{#1}}
-\def\ucas@value@en@date{}
-\newcommand{\DATE}[1]{\def\ucas@value@en@date{#1}}
+\def\shtu@value@en@title{}
+\def\shtu@value@en@titlemark{}
+\newcommand{\TITLE}[2][\shtu@value@en@title]{%
+    \def\shtu@value@en@title{#2}
+    %\def\shtu@value@en@titlemark{\MakeUppercase{#1}}}
+    \def\shtu@value@en@titlemark{#1}}
+\def\shtu@value@en@author{}
+\newcommand{\AUTHOR}[1]{\def\shtu@value@en@author{#1}}
+\def\shtu@value@en@advisor{}
+\newcommand{\ADVISOR}[1]{\def\shtu@value@en@advisor{#1}}
+\def\shtu@value@en@degree{}
+\newcommand{\DEGREE}[1]{\edef\shtu@value@en@degree{\zap@space#1 \@empty}}% expand and remove space
+\def\shtu@value@en@degreetype{}
+\newcommand{\DEGREETYPE}[1]{\def\shtu@value@en@degreetype{#1}}
+\def\shtu@value@en@thesistype{}
+\newcommand{\THESISTYPE}[1]{\def\shtu@value@en@thesistype{#1}}
+\def\shtu@value@en@major{}
+\newcommand{\MAJOR}[1]{\def\shtu@value@en@major{#1}}
+\def\shtu@value@en@institute{}
+\newcommand{\INSTITUTE}[1]{\def\shtu@value@en@institute{#1}}
+\def\shtu@value@en@school{}
+\newcommand{\SCHOOL}[1]{\def\shtu@value@en@school{#1}}
+\def\shtu@value@en@date{}
+\newcommand{\DATE}[1]{\def\shtu@value@en@date{#1}}
 %-
 %-> Detect and adjust items
 %-
 \AtEndPreamble{%
-    \ucasifstreq{\ucas@value@en@degree}{Bachelor}{%
-        \def\ucas@label@ch@thesis{\ucas@label@ch@thesis@bac}%
-        \def\ucas@label@ch@author{\ucas@label@ch@author@bac}%
-        \def\ucas@label@ch@major{\ucas@label@ch@major@bac}%
-        \def\ucas@label@ch@institute{\ucas@label@ch@institute@bac}%
-        \def\ucas@value@en@thesistype{\ucas@value@en@thesistype@bac}%
+    \shtuifstreq{\shtu@value@en@degree}{Bachelor}{%
+        \def\shtu@label@ch@thesis{\shtu@label@ch@thesis@bac}%
+        \def\shtu@label@ch@author{\shtu@label@ch@author@bac}%
+        \def\shtu@label@ch@major{\shtu@label@ch@major@bac}%
+        \def\shtu@label@ch@institute{\shtu@label@ch@institute@bac}%
+        \def\shtu@value@en@thesistype{\shtu@value@en@thesistype@bac}%
         \def\maketitle{\maketitle@xpdc}
         \def\MAKETITLE{\MAKETITLE@xpdc}
     }{%
-    \ucasifstreq{\ucas@value@en@degree}{Master}{%
-        \def\ucas@label@ch@thesis{\ucas@label@ch@thesis@mas}%
-        \def\ucas@label@ch@author{\ucas@label@ch@author@mas}%
-        \def\ucas@label@ch@major{\ucas@label@ch@major@mas}%
-        \def\ucas@label@ch@institute{\ucas@label@ch@institute@mas}%
-        \def\ucas@value@en@thesistype{\ucas@value@en@thesistype@mas}%
+    \shtuifstreq{\shtu@value@en@degree}{Master}{%
+        \def\shtu@label@ch@thesis{\shtu@label@ch@thesis@mas}%
+        \def\shtu@label@ch@author{\shtu@label@ch@author@mas}%
+        \def\shtu@label@ch@major{\shtu@label@ch@major@mas}%
+        \def\shtu@label@ch@institute{\shtu@label@ch@institute@mas}%
+        \def\shtu@value@en@thesistype{\shtu@value@en@thesistype@mas}%
         \def\maketitle{\maketitle@xpdc}
         \def\MAKETITLE{\MAKETITLE@xpdc}
     }{%
-    \ucasifstreq{\ucas@value@en@degree}{Doctor}{%
-        \def\ucas@label@ch@thesis{\ucas@label@ch@thesis@doc}%
-        \def\ucas@label@ch@author{\ucas@label@ch@author@doc}%
-        \def\ucas@label@ch@major{\ucas@label@ch@major@doc}%
-        \def\ucas@label@ch@institute{\ucas@label@ch@institute@doc}%
-        \def\ucas@value@en@thesistype{\ucas@value@en@thesistype@doc}%
+    \shtuifstreq{\shtu@value@en@degree}{Doctor}{%
+        \def\shtu@label@ch@thesis{\shtu@label@ch@thesis@doc}%
+        \def\shtu@label@ch@author{\shtu@label@ch@author@doc}%
+        \def\shtu@label@ch@major{\shtu@label@ch@major@doc}%
+        \def\shtu@label@ch@institute{\shtu@label@ch@institute@doc}%
+        \def\shtu@value@en@thesistype{\shtu@value@en@thesistype@doc}%
         \def\maketitle{\maketitle@xpdc}
         \def\MAKETITLE{\MAKETITLE@xpdc}
     }{%
-    \ucasifstreq{\ucas@value@en@degree}{Postdoctor}{%
-        \def\ucas@label@ch@thesis{\ucas@label@ch@thesis@pdc}%
-        \def\ucas@label@ch@author{\ucas@label@ch@author@pdc}%
-        \def\ucas@label@ch@major{\ucas@label@ch@major@pdc}%
-        \def\ucas@label@ch@institute{\ucas@label@ch@institute@pdc}%
-        \def\ucas@value@en@thesistype{\ucas@value@en@thesistype@pdc}%
+    \shtuifstreq{\shtu@value@en@degree}{Postdoctor}{%
+        \def\shtu@label@ch@thesis{\shtu@label@ch@thesis@pdc}%
+        \def\shtu@label@ch@author{\shtu@label@ch@author@pdc}%
+        \def\shtu@label@ch@major{\shtu@label@ch@major@pdc}%
+        \def\shtu@label@ch@institute{\shtu@label@ch@institute@pdc}%
+        \def\shtu@value@en@thesistype{\shtu@value@en@thesistype@pdc}%
         \def\maketitle{\maketitle@pdc}
         \def\MAKETITLE{\MAKETITLE@pdc}
     }{%
-        \ClassWarning{ucasthesis}{Invalid value of '\string\DEGREE', please check the spelling}%
+        \ClassWarning{shtuthesis}{Invalid value of '\string\DEGREE', please check the spelling}%
     }}}}%
 }
 %-
@@ -283,42 +283,42 @@
         \linespread{1.6}
         \zihao{4}\bfseries
 
-        \hfill{} \ucasifstrbk{\ucas@value@ch@confidential}{}{\ucas@label@ch@confidential \ulenhance{\ulextend[50pt]{\hspace*{-\ulhshift}\zihao{5}\ucas@value@ch@confidential}}}
+        \hfill{} \shtuifstrbk{\shtu@value@ch@confidential}{}{\shtu@label@ch@confidential \ulenhance{\ulextend[50pt]{\hspace*{-\ulhshift}\zihao{5}\shtu@value@ch@confidential}}}
 
         \vspace*{\stretch{4}}
 
-        {\ucas@value@ch@schoollogo}
+        {\shtu@value@ch@schoollogo}
 
         \vspace*{\stretch{2}}
 
-        {\zihao{1}\bfseries\sffamily {\ucas@label@ch@thesis}}
+        {\zihao{1}\bfseries\sffamily {\shtu@label@ch@thesis}}
 
         \vspace*{\stretch{3}}
 
-        {\zihao{-3}\bfseries\sffamily \ulenhance[1.5pt]{\ucas@value@ch@title}}
+        {\zihao{-3}\bfseries\sffamily \ulenhance[1.5pt]{\shtu@value@ch@title}}
 
         \vspace*{\stretch{3}}
 
         \def\tabcolsep{1pt}
         \def\arraystretch{1.3}
         \begin{tabular}{lc}
-            \ucas@label@ch@author & \ulenhance[1.2pt]{\ulextend{\ucas@value@ch@author}}\\
-            \ucas@label@ch@advisor & \ucaslntotab[1.2pt]{\ucas@value@ch@advisor}\\
-            \ucas@label@ch@degree & \ulenhance[1.2pt]{\ulextend{\ucas@value@ch@degreetype\ucas@value@ch@degree}}\\
-            \ucas@label@ch@major & \ulenhance[1.2pt]{\ulextend{\ucas@value@ch@major}}\\
-            \ucas@label@ch@institute & \ucaslntotab[1.2pt]{\ucas@value@ch@institute}\\
+            \shtu@label@ch@author & \ulenhance[1.2pt]{\ulextend{\shtu@value@ch@author}}\\
+            \shtu@label@ch@advisor & \shtulntotab[1.2pt]{\shtu@value@ch@advisor}\\
+            \shtu@label@ch@degree & \ulenhance[1.2pt]{\ulextend{\shtu@value@ch@degreetype\shtu@value@ch@degree}}\\
+            \shtu@label@ch@major & \ulenhance[1.2pt]{\ulextend{\shtu@value@ch@major}}\\
+            \shtu@label@ch@institute & \shtulntotab[1.2pt]{\shtu@value@ch@institute}\\
         \end{tabular}
 
         \vspace*{\stretch{4}}
 
-        {\ucas@value@ch@date}
+        {\shtu@value@ch@date}
 
         \vspace*{\stretch{4}}
     \end{center}
     \clearpage
     \if@twoside
         \thispagestyle{empty}
-        \ifucas@versioninfo
+        \ifshtu@versioninfo
             \vspace*{\stretch{1}}
             \begin{footnotesize}
                 \noindent
@@ -327,7 +327,7 @@
         \fi
         \cleardoublepage[empty]
     \else
-        \ifucas@versioninfo
+        \ifshtu@versioninfo
             \thispagestyle{empty}
             \vspace*{\stretch{1}}
             \begin{footnotesize}
@@ -337,7 +337,7 @@
             \cleardoublepage[empty]
         \fi
     \fi
-    \ifucas@print%
+    \ifshtu@print%
         \hypersetup{% set hyperlinks
             hidelinks,% remove link color and border
         }
@@ -353,40 +353,40 @@
         \linespread{2.0}
         \zihao{4}\bfseries
 
-        \makebox[3.0em][s]{\ucas@label@ch@classid} \ulenhance{\ulextend[6em]{\zihao{5}\ucas@value@ch@classid}} \hfill{} \ucas@label@ch@confidential \ulenhance{\ulextend[6em]{\zihao{5}\ucas@value@ch@confidential}}
+        \makebox[3.0em][s]{\shtu@label@ch@classid} \ulenhance{\ulextend[6em]{\zihao{5}\shtu@value@ch@classid}} \hfill{} \shtu@label@ch@confidential \ulenhance{\ulextend[6em]{\zihao{5}\shtu@value@ch@confidential}}
 
-        \makebox[3.0em][s]{\ucas@label@ch@udc} \ulenhance{\ulextend[6em]{\zihao{5}\ucas@value@ch@udc}} \hfill{} \ucas@label@ch@orderid \ulenhance{\ulextend[6em]{\zihao{5}\ucas@value@ch@orderid}}
+        \makebox[3.0em][s]{\shtu@label@ch@udc} \ulenhance{\ulextend[6em]{\zihao{5}\shtu@value@ch@udc}} \hfill{} \shtu@label@ch@orderid \ulenhance{\ulextend[6em]{\zihao{5}\shtu@value@ch@orderid}}
 
         \vspace*{\stretch{6}}
 
-        {\ziju{1.5}\ucas@value@ch@schoollogo}
+        {\ziju{1.5}\shtu@value@ch@schoollogo}
 
         \vspace*{\stretch{1}}
 
-        {\zihao{-2}\bfseries\sffamily{\ziju{0.5} \ucas@label@ch@thesis}}
+        {\zihao{-2}\bfseries\sffamily{\ziju{0.5} \shtu@label@ch@thesis}}
 
         \vspace*{\stretch{3}}
 
-        {\zihao{-3}\bfseries\sffamily \ulenhance[1.5pt]{\ucas@value@ch@title}}
+        {\zihao{-3}\bfseries\sffamily \ulenhance[1.5pt]{\shtu@value@ch@title}}
 
         \vspace*{\stretch{2.5}}
 
-        \ucas@value@ch@author
+        \shtu@value@ch@author
 
         \vspace*{\stretch{2.5}}
 
         \def\tabcolsep{1pt}
         \def\arraystretch{1.3}
         \begin{tabular}{l@{\quad}c}
-            \ucas@label@ch@completedate & \ulenhance{\ulextend[200pt]{\ucas@value@ch@completedate}}\\
-            \ucas@label@ch@submitdate & \ulenhance{\ulextend[200pt]{\ucas@value@ch@submitdate}}\\
+            \shtu@label@ch@completedate & \ulenhance{\ulextend[200pt]{\shtu@value@ch@completedate}}\\
+            \shtu@label@ch@submitdate & \ulenhance{\ulextend[200pt]{\shtu@value@ch@submitdate}}\\
         \end{tabular}
 
         \vspace*{\stretch{2}}
 
-        \ucas@value@ch@institute
+        \shtu@value@ch@institute
 
-        \ucas@value@ch@date
+        \shtu@value@ch@date
 
         \vspace*{\stretch{4}}
     \end{center}
@@ -395,7 +395,7 @@
       \thispagestyle{empty}
       \cleardoublepage[empty]
     \fi
-    \ifucas@print%
+    \ifshtu@print%
         \hypersetup{% set hyperlinks
             hidelinks,% remove link color and border
         }
@@ -413,25 +413,25 @@
 
         \vspace*{50pt}
 
-        {\zihao{-3}\bfseries \ulenhance[1.5pt]{\ucas@value@en@title}}
+        {\zihao{-3}\bfseries \ulenhance[1.5pt]{\shtu@value@en@title}}
 
         \vspace*{\stretch{3}}
 
-        {\ucas@label@en@statement}
+        {\shtu@label@en@statement}
 
         {By}
 
-        {\ucas@value@en@author}
+        {\shtu@value@en@author}
 
-        {\ucas@value@en@advisor}
+        {\shtu@value@en@advisor}
 
         \vspace*{\stretch{3}}
 
-        {\ucas@value@en@institute}
+        {\shtu@value@en@institute}
 
         \vspace*{\stretch{1}}
 
-        {\ucas@value@en@date}
+        {\shtu@value@en@date}
 
         \vspace*{\stretch{3}}
     \end{center}
@@ -450,33 +450,33 @@
 
         \vspace*{50pt}
 
-        {\zihao{3}\bfseries \ucas@value@ch@title}
+        {\zihao{3}\bfseries \shtu@value@ch@title}
 
         \vspace*{\stretch{3}}
 
-        {\zihao{-3}\bfseries \ucas@value@en@title}
+        {\zihao{-3}\bfseries \shtu@value@en@title}
 
         \vspace*{\stretch{3}}
 
         \def\tabcolsep{1pt}
         \def\arraystretch{1.3}
         \begin{tabular}{l@{\quad}l}
-            \makebox[11em][s]{\ucas@label@ch@author} & \ucas@value@ch@author\\
-            \makebox[11em][s]{\ucas@label@ch@subject} & \ucas@value@ch@subject\\
-            \makebox[11em][s]{\ucas@label@ch@major} & \ucas@value@ch@major\\
+            \makebox[11em][s]{\shtu@label@ch@author} & \shtu@value@ch@author\\
+            \makebox[11em][s]{\shtu@label@ch@subject} & \shtu@value@ch@subject\\
+            \makebox[11em][s]{\shtu@label@ch@major} & \shtu@value@ch@major\\
         \end{tabular}
 
         \vspace*{\stretch{3}}
 
-        \ucas@label@ch@studydatefrom \quad \ucas@value@ch@studydatefrom
+        \shtu@label@ch@studydatefrom \quad \shtu@value@ch@studydatefrom
 
-        \ucas@label@ch@studydateto \quad \ucas@value@ch@studydateto
+        \shtu@label@ch@studydateto \quad \shtu@value@ch@studydateto
 
         \vspace*{\stretch{3}}
 
-        \ucas@value@ch@orginization
+        \shtu@value@ch@orginization
 
-        \ucas@value@ch@date
+        \shtu@value@ch@date
 
         \vspace*{\stretch{3}}
     \end{center}
@@ -499,32 +499,32 @@
         \vspace*{2ex}
 
         \begin{center}
-            {\zihao{4}\bfseries\sffamily \ucas@label@ch@declare@creativity}
+            {\zihao{4}\bfseries\sffamily \shtu@label@ch@declare@creativity}
         \end{center}
 
-        {\ucas@value@ch@declare@creativity}
+        {\shtu@value@ch@declare@creativity}
 
         \vspace*{3ex}
 
-        {\hfill{} {\ucas@label@ch@declare@author \hspace*{14em}}}
+        {\hfill{} {\shtu@label@ch@declare@author \hspace*{14em}}}
 
-        {\hfill{} {\ucas@label@ch@declare@date \hspace*{14em}}}
+        {\hfill{} {\shtu@label@ch@declare@date \hspace*{14em}}}
 
         \vspace*{6ex}
 
         \begin{center}
-            {\zihao{4}\bfseries\sffamily \ucas@label@ch@declare@rights}
+            {\zihao{4}\bfseries\sffamily \shtu@label@ch@declare@rights}
         \end{center}
 
-        {\ucas@value@ch@declare@rights}
+        {\shtu@value@ch@declare@rights}
 
-        {\ucas@value@ch@declare@rule}
+        {\shtu@value@ch@declare@rule}
 
         \vspace*{3ex}
 
-        {\hfill{} {\ucas@label@ch@declare@author \hspace*{10em} \ucas@label@ch@declare@advisor \hspace*{9em}}}
+        {\hfill{} {\shtu@label@ch@declare@author \hspace*{10em} \shtu@label@ch@declare@advisor \hspace*{9em}}}
 
-        {\hfill{} {\ucas@label@ch@declare@date \hspace*{10em} \ucas@label@ch@declare@date \hspace*{9em}}}
+        {\hfill{} {\shtu@label@ch@declare@date \hspace*{10em} \shtu@label@ch@declare@date \hspace*{9em}}}
 
         \vspace*{3ex}
     }
@@ -540,58 +540,58 @@
 %- define chinese keywords
 \newcommand{\keywords}[1]{%
     \vspace{\baselineskip}
-    \noindent {\bfseries \ucas@label@ch@keywords} #1}
+    \noindent {\bfseries \shtu@label@ch@keywords} #1}
 %- define engish keywords
 \newcommand{\KEYWORDS}[1]{%
     \vspace{\baselineskip}
-    \noindent {\bfseries \ucas@label@en@keywords} #1}
+    \noindent {\bfseries \shtu@label@en@keywords} #1}
 %---------------------------------------------------------------------------%
 %->> Structure elements
 %---------------------------------------------------------------------------%
-\ifucas@plain%
-    \def\contentsname{\ucas@label@en@tocname}
-    \def\listfigurename{\ucas@label@en@lsfigname}
-    \def\listtablename{\ucas@label@en@lstabname}
-    \def\bibname{\ucas@label@en@bibname}
-    \def\refname{\ucas@label@en@bibname}
-    \def\algname{\ucas@label@en@algname}
-    \def\bibetal{\ucas@label@en@bibetal}
-    \def\biband{\ucas@label@en@biband}
-    \def\axiomname{\ucas@label@en@axiomname}
-    \def\theoremname{\ucas@label@en@theoremname}
-    \def\lemmaname{\ucas@label@en@lemmaname}
-    \def\corollaryname{\ucas@label@en@corollaryname}
-    \def\assertionname{\ucas@label@en@assertionname}
-    \def\propositionname{\ucas@label@en@propositionname}
-    \def\conjecturename{\ucas@label@en@conjecturename}
-    \def\definitionname{\ucas@label@en@definitionname}
-    \def\examplename{\ucas@label@en@examplename}
-    \def\remarkname{\ucas@label@en@remarkname}
-    \def\proofname{\ucas@label@en@proofname}
-    \def\@title{\ucas@value@en@titlemark}
-    \def\@author{\ucas@value@en@author}
+\ifshtu@plain%
+    \def\contentsname{\shtu@label@en@tocname}
+    \def\listfigurename{\shtu@label@en@lsfigname}
+    \def\listtablename{\shtu@label@en@lstabname}
+    \def\bibname{\shtu@label@en@bibname}
+    \def\refname{\shtu@label@en@bibname}
+    \def\algname{\shtu@label@en@algname}
+    \def\bibetal{\shtu@label@en@bibetal}
+    \def\biband{\shtu@label@en@biband}
+    \def\axiomname{\shtu@label@en@axiomname}
+    \def\theoremname{\shtu@label@en@theoremname}
+    \def\lemmaname{\shtu@label@en@lemmaname}
+    \def\corollaryname{\shtu@label@en@corollaryname}
+    \def\assertionname{\shtu@label@en@assertionname}
+    \def\propositionname{\shtu@label@en@propositionname}
+    \def\conjecturename{\shtu@label@en@conjecturename}
+    \def\definitionname{\shtu@label@en@definitionname}
+    \def\examplename{\shtu@label@en@examplename}
+    \def\remarkname{\shtu@label@en@remarkname}
+    \def\proofname{\shtu@label@en@proofname}
+    \def\@title{\shtu@value@en@titlemark}
+    \def\@author{\shtu@value@en@author}
 \else
-    \def\contentsname{\ucas@label@ch@tocname}
-    \def\listfigurename{\ucas@label@ch@lsfigname}
-    \def\listtablename{\ucas@label@ch@lstabname}
-    \def\algname{\ucas@label@ch@algname}
-    \def\bibname{\ucas@label@ch@bibname}
-    \def\refname{\ucas@label@ch@bibname}
-    \def\bibetal{\ucas@label@ch@bibetal}
-    \def\biband{\ucas@label@ch@biband}
-    \def\axiomname{\ucas@label@ch@axiomname}
-    \def\theoremname{\ucas@label@ch@theoremname}
-    \def\lemmaname{\ucas@label@ch@lemmaname}
-    \def\corollaryname{\ucas@label@ch@corollaryname}
-    \def\assertionname{\ucas@label@ch@assertionname}
-    \def\propositionname{\ucas@label@ch@propositionname}
-    \def\conjecturename{\ucas@label@ch@conjecturename}
-    \def\definitionname{\ucas@label@ch@definitionname}
-    \def\examplename{\ucas@label@ch@examplename}
-    \def\remarkname{\ucas@label@ch@remarkname}
-    \def\proofname{\ucas@label@ch@proofname}
-    \def\@title{\ucas@value@ch@titlemark}
-    \def\@author{\ucas@value@ch@author}
+    \def\contentsname{\shtu@label@ch@tocname}
+    \def\listfigurename{\shtu@label@ch@lsfigname}
+    \def\listtablename{\shtu@label@ch@lstabname}
+    \def\algname{\shtu@label@ch@algname}
+    \def\bibname{\shtu@label@ch@bibname}
+    \def\refname{\shtu@label@ch@bibname}
+    \def\bibetal{\shtu@label@ch@bibetal}
+    \def\biband{\shtu@label@ch@biband}
+    \def\axiomname{\shtu@label@ch@axiomname}
+    \def\theoremname{\shtu@label@ch@theoremname}
+    \def\lemmaname{\shtu@label@ch@lemmaname}
+    \def\corollaryname{\shtu@label@ch@corollaryname}
+    \def\assertionname{\shtu@label@ch@assertionname}
+    \def\propositionname{\shtu@label@ch@propositionname}
+    \def\conjecturename{\shtu@label@ch@conjecturename}
+    \def\definitionname{\shtu@label@ch@definitionname}
+    \def\examplename{\shtu@label@ch@examplename}
+    \def\remarkname{\shtu@label@ch@remarkname}
+    \def\proofname{\shtu@label@ch@proofname}
+    \def\@title{\shtu@value@ch@titlemark}
+    \def\@author{\shtu@value@ch@author}
 \fi
 %---------------------------------------------------------------------------%
 %->> Structure layout

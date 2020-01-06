@@ -1,4 +1,5 @@
-# `ucasthesis` 国科大学位论文 LaTeX 模板 [最新样式]
+# `shtuthesis` 上科大学位论文 LaTeX 模板 [最新样式] 
+（在[国科大学位论文模板](https://github.com/mohuangrui/ucasthesis)基础上修改而成）
 
 ## 模板下载
 
@@ -7,20 +8,20 @@
 ## 重要建议
 
 * 关于 LaTeX 的知识性问题，请查阅 [LaTeX 知识小站](https://github.com/mohuangrui/ucasthesis/wiki) 和 [LaTeX Wikibook](https://en.wikibooks.org/wiki/LaTeX)，如发问需前往 [CTeX Forum](https://github.com/CTeX-org/forum)。
-* 关于 ucasthesis 编译和设计的问题，请先读 **模板使用说明.pdf**，如发问需遵从[提问流程](https://github.com/mohuangrui/ucasthesis/wiki/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98)。
-* 使用邮件传播 ucasthesis 时，请先删除 `artratex.bat` 以防范 Dos 脚本的潜在风险。
-* 开题报告请见：[ucasproposal: 中国科学院大学开题报告 LaTeX 模板](https://github.com/mohuangrui/ucasproposal)。
+* 关于 shtuthesis 编译和设计的问题，请先读 **模板使用说明.pdf**，如发问需遵从[提问流程](https://github.com/mohuangrui/ucasthesis/wiki/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98)。
+* 使用邮件传播 shtuthesis 时，请先删除 `artratex.bat` 以防范 Dos 脚本的潜在风险。
+* 开题报告请见：[shtuproposal: 中国科学院大学开题报告 LaTeX 模板](https://github.com/mohuangrui/ucasproposal)。
 * 书脊制作请见：[latexspine: LaTeX 书脊模板](https://github.com/mohuangrui/latexspine)。
 
 ## 模板简介
  
-* ucasthesis 为撰写中国科学院大学**本**、**硕**、**博**学位论文和[**博后**](https://github.com/mohuangrui/ucasthesis/wiki/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98#%E5%A6%82%E4%BD%95%E5%A1%AB%E5%86%99%E5%8D%9A%E5%A3%AB%E5%90%8E%E7%9A%84-frontinfotex-)报告的 LaTeX 模版。ucasthesis 提供了简单明了的**模板使用说明.pdf**。无论你是否具有 LaTeX 使用经验，都可较为轻松地使用以完成学位论文的撰写和排版。谢谢大家的测试、反馈和支持，我们一起的努力让 ucasthesis 非常荣幸地得到了国科大本科部陆晴老师、本科部学位办丁云云老师和中科院数学与系统科学研究院吴凌云研究员的支持，并得到吴凌云学长在 [CTEX](http://www.ctex.org/HomePage) 的发布。
+* shtuthesis 为撰写上海科技大学**本**、**硕**、**博**学位论文和[**博后**](https://github.com/mohuangrui/ucasthesis/wiki/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98#%E5%A6%82%E4%BD%95%E5%A1%AB%E5%86%99%E5%8D%9A%E5%A3%AB%E5%90%8E%E7%9A%84-frontinfotex-)报告的 LaTeX 模版。shtuthesis 提供了简单明了的**模板使用说明.pdf**。无论你是否具有 LaTeX 使用经验，都可较为轻松地使用以完成学位论文的撰写和排版。谢谢大家的测试、反馈和支持，我们一起的努力让 shtuthesis 非常荣幸地得到了国科大本科部陆晴老师、本科部学位办丁云云老师和中科院数学与系统科学研究院吴凌云研究员的支持，并得到吴凌云学长在 [CTEX](http://www.ctex.org/HomePage) 的发布。
 
-* 考虑到许多同学可能缺乏 LaTeX 使用经验，ucasthesis 将 LaTeX 的复杂性高度封装，开放出简单的接口，以便轻易使用。同时，对用 LaTeX 撰写论文的一些主要难题，如制图、制表、文献索引等，进行了详细说明，并提供了相应的代码样本，理解了上述问题后，对于初学者而言，使用此模板撰写学位论文将不存在实质性的困难。所以，如果你是初学者，请不要直接放弃，因为同样为初学者的我，十分明白让 LaTeX 简单易用的重要性，而这正是 ucasthesis 所追求和体现的。
+* 考虑到许多同学可能缺乏 LaTeX 使用经验，shtuthesis 将 LaTeX 的复杂性高度封装，开放出简单的接口，以便轻易使用。同时，对用 LaTeX 撰写论文的一些主要难题，如制图、制表、文献索引等，进行了详细说明，并提供了相应的代码样本，理解了上述问题后，对于初学者而言，使用此模板撰写学位论文将不存在实质性的困难。所以，如果你是初学者，请不要直接放弃，因为同样为初学者的我，十分明白让 LaTeX 简单易用的重要性，而这正是 shtuthesis 所追求和体现的。
 
-* 此中国科学院大学学位论文模板 ucasthesis 基于中科院数学与系统科学研究院吴凌云研究员的 CASthesis 模板发展而来。当前 ucasthesis 模板满足最新的中国科学院大学学位论文撰写要求和封面设定。兼顾操作系统：Windows，Linux，MacOS 和 LaTeX 编译引擎：pdflatex，xelatex，lualatex。支持中文书签、中文渲染、中文粗体显示、拷贝 PDF 中的文本到其他文本编辑器等特性（[Windows 系统 PDF 拷贝乱码的解决方案需见：字体配置](https://github.com/mohuangrui/ucasthesis/wiki/%E5%AD%97%E4%BD%93%E9%85%8D%E7%BD%AE)）。此外，对模板的文档结构进行了精心设计，撰写了编译脚本提高模板的易用性和使用效率。
+* 此中国科学院大学学位论文模板 shtuthesis 基于中科院数学与系统科学研究院吴凌云研究员的 CASthesis 模板发展而来。当前 shtuthesis 模板满足最新的中国科学院大学学位论文撰写要求和封面设定。兼顾操作系统：Windows，Linux，MacOS 和 LaTeX 编译引擎：pdflatex，xelatex，lualatex。支持中文书签、中文渲染、中文粗体显示、拷贝 PDF 中的文本到其他文本编辑器等特性（[Windows 系统 PDF 拷贝乱码的解决方案需见：字体配置](https://github.com/mohuangrui/shtuthesis/wiki/%E5%AD%97%E4%BD%93%E9%85%8D%E7%BD%AE)）。此外，对模板的文档结构进行了精心设计，撰写了编译脚本提高模板的易用性和使用效率。
 
-* ucasthesis 的目标在于简化学位论文的撰写，利用 LaTeX 格式与内容分离的特征，模板将格式设计好后，作者可只需关注论文内容。 同时，ucasthesis 有着整洁一致的代码结构和扼要的注解，对文档的仔细阅读可为初学者提供一个学习 LaTeX 的窗口。此外，模板的架构十分注重通用性，事实上，ucasthesis 不仅是国科大学位论文模板，同时，通过少量修改即可成为使用 LaTeX 撰写中英文文章或书籍的通用模板，并为使用者的个性化设定提供了接口。
+* shtuthesis 的目标在于简化学位论文的撰写，利用 LaTeX 格式与内容分离的特征，模板将格式设计好后，作者可只需关注论文内容。 同时，shtuthesis 有着整洁一致的代码结构和扼要的注解，对文档的仔细阅读可为初学者提供一个学习 LaTeX 的窗口。此外，模板的架构十分注重通用性，事实上，shtuthesis 不仅是国科大学位论文模板，同时，通过少量修改即可成为使用 LaTeX 撰写中英文文章或书籍的通用模板，并为使用者的个性化设定提供了接口。
 
 ## 重要通知
 
@@ -62,7 +63,7 @@
 
 * `2019-02-20` 根据 [opt-gaobin, issue #100](https://github.com/mohuangrui/ucasthesis/issues/100) ，增加定理、定义、证明等数学环境。根据 [DRjy, issue #102](https://github.com/mohuangrui/ucasthesis/issues/102) ，调整`\mathcal`字体样式。根据 [zike Liu, email] ，适当缩减目录列表的缩进。根据 [xiaoyaoE, issue #105](https://github.com/mohuangrui/ucasthesis/issues/105) ，使数字字体和英文字体一致。完善中文版和国际版之间的中英格式切换。
 
-* `2019-01-10` 根据 [mnpengjk, issue #57](https://github.com/mohuangrui/ucasthesis/issues/57) ， 将公式编号前加点纳入模版默认，更多讨论可见：[琐屑细节](https://github.com/mohuangrui/ucasthesis/wiki/琐屑细节) 。根据 [yunyun2019, issue #95](https://github.com/mohuangrui/ucasthesis/issues/95) ，采用 [zepinglee](https://github.com/zepinglee) 基于国标样式为`ucas`所定制文献样式：[ucas 样式分支](https://github.com/CTeX-org/gbt7714-bibtex-style/tree/ucas) ，文献样式更多讨论可见：[文献样式](https://github.com/mohuangrui/ucasthesis/wiki/%E6%96%87%E7%8C%AE%E6%A0%B7%E5%BC%8F)。根据 [邵岳林, email] ，将附录复原为常规的排版设置，若需将附录置于参考文献后，请见：[琐屑细节](https://github.com/mohuangrui/ucasthesis/wiki/琐屑细节)。
+* `2019-01-10` 根据 [mnpengjk, issue #57](https://github.com/mohuangrui/ucasthesis/issues/57) ， 将公式编号前加点纳入模版默认，更多讨论可见：[琐屑细节](https://github.com/mohuangrui/shtuthesis/wiki/琐屑细节) 。根据 [yunyun2019, issue #95](https://github.com/mohuangrui/ucasthesis/issues/95) ，采用 [zepinglee](https://github.com/zepinglee) 基于国标样式为`shtu`所定制文献样式：[shtu 样式分支](https://github.com/CTeX-org/gbt7714-bibtex-style/tree/shtu) ，文献样式更多讨论可见：[文献样式](https://github.com/mohuangrui/ucasthesis/wiki/%E6%96%87%E7%8C%AE%E6%A0%B7%E5%BC%8F)。根据 [邵岳林, email] ，将附录复原为常规的排版设置，若需将附录置于参考文献后，请见：[琐屑细节](https://github.com/mohuangrui/ucasthesis/wiki/琐屑细节)。
 
 * `2018-04-03` 根据国科大本科部陆晴老师和本科部学位办丁云云老师的复审审核建议再次修复一些样式细节问题。
 
@@ -75,7 +76,7 @@
 
 * `2018-03-22` 演示表标题居表上，加粗图表标注，设置长图表标题悬挂缩进（由于`bicaption`宏包无法正确接受`caption`宏包的`margin`选项，图表中英标题第一行无法正确同步缩进，从而放弃第一行的缩进），强调多图中子图标题的规范使用，通过摘要和符号列表演示标题不在目录中显示却仍在页眉中显示。根据 [赵永明, email]，设置双语图表标题和`bicaption`不在图形列表和表格列表中显示英文标题。
 
-* `2018-03-21` 根据 [zhanglinbo, issue #42](https://github.com/mohuangrui/ucasthesis/issues/42) ，使用 [xiaoyao9933](https://github.com/xiaoyao9933/UCASthesis) 制作的`ucas_logo.pdf`使学校`logo`放大不失真。根据 [Starsky Wong, issue #41](https://github.com/mohuangrui/ucasthesis/issues/41) ，设置标题英文设为`Times New Roman`。根据 [will0n, issue #29](https://github.com/mohuangrui/ucasthesis/issues/29) ，[Man-Ting-Fang, issue #26](https://github.com/mohuangrui/ucasthesis/issues/26) ，[diyiliaoya, issue #12](https://github.com/mohuangrui/ucasthesis/issues/12) ，和 [赵永明, email] ，矫正一些格式细节问题。根据 [tangjie1992, issue #30](https://github.com/mohuangrui/ucasthesis/issues/30) ，配置算法环境。
+* `2018-03-21` 根据 [zhanglinbo, issue #42](https://github.com/mohuangrui/ucasthesis/issues/42) ，使用 [xiaoyao9933](https://github.com/xiaoyao9933/ucasthesis) 制作的`shtu_logo.pdf`使学校`logo`放大不失真。根据 [Starsky Wong, issue #41](https://github.com/mohuangrui/ucasthesis/issues/41) ，设置标题英文设为`Times New Roman`。根据 [will0n, issue #29](https://github.com/mohuangrui/ucasthesis/issues/29) ，[Man-Ting-Fang, issue #26](https://github.com/mohuangrui/shtuthesis/issues/26) ，[diyiliaoya, issue #12](https://github.com/mohuangrui/ucasthesis/issues/12) ，和 [赵永明, email] ，矫正一些格式细节问题。根据 [tangjie1992, issue #30](https://github.com/mohuangrui/ucasthesis/issues/30) ，配置算法环境。
 
 * `2018-02-04` 在 [ctex](https://github.com/CTeX-org/ctex-kit) 开发者的帮助下修复误用字体命令导致的粗宋体异常。然后，将模板兼容性进一步扩展为兼容操作系统`Windows`，`Linux`，`MacOS`和`LaTeX `编译引擎`pdflatex`，`xelatex`，`lualatex`。移除`microtype`宏包以提高编译效率。
 
