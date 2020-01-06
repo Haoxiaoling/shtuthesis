@@ -1,0 +1,30 @@
+\contentsline {chapter}{\numberline {第1章\hspace {.3em}}引言}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}研究背景}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}系统要求}{1}{section.1.2}
+\contentsline {section}{\numberline {1.3}问题反馈}{2}{section.1.3}
+\contentsline {section}{\numberline {1.4}模板下载}{2}{section.1.4}
+\contentsline {chapter}{\numberline {第2章\hspace {.3em}}\LaTeX {}使用说明}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}先试试效果}{3}{section.2.1}
+\contentsline {section}{\numberline {2.2}文档目录简介}{3}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Thesis.tex}{3}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}编译脚本}{4}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Tmp文件夹}{4}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Style文件夹}{4}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}Tex文件夹}{4}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.6}Img文件夹}{5}{subsection.2.2.6}
+\contentsline {subsection}{\numberline {2.2.7}Biblio文件夹}{5}{subsection.2.2.7}
+\contentsline {section}{\numberline {2.3}数学公式、图表、参考文献等功能}{5}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}数学公式}{5}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}数学环境}{6}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}表格}{6}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.4}图片插入}{7}{subsection.2.3.4}
+\contentsline {subsection}{\numberline {2.3.5}算法}{7}{subsection.2.3.5}
+\contentsline {subsection}{\numberline {2.3.6}参考文献引用}{7}{subsection.2.3.6}
+\contentsline {section}{\numberline {2.4}常见使用问题}{10}{section.2.4}
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}中国科学院大学学位论文撰写要求}{13}{appendix.A}
+\contentsline {section}{\numberline {A.1}论文无附录者无需附录部分}{13}{section.A.1}
+\contentsline {section}{\numberline {A.2}测试公式编号 $\mitLambda ,\mitlambda ,\mittheta ,\bar {\mitLambda },\sqrt {S_{NN}}$}{13}{section.A.2}
+\contentsline {section}{\numberline {A.3}测试生僻字}{14}{section.A.3}
+\contentsline {chapter}{参考文献}{15}{section*.20}
+\contentsline {chapter}{作者简历及攻读学位期间发表的学术论文与研究成果}{17}{appendix*.22}
+\contentsline {chapter}{致谢}{19}{appendix*.29}
