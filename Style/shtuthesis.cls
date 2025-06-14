@@ -139,6 +139,8 @@
 %- underline
 \ifxetex%
     %\RequirePackage{ulem}% loaded by xeCJKfntef
+    % In TL2025, xeCJKfntef should be loaded manually with xetex
+    \RequirePackage{xeCJKfntef}%
 \else%
     \RequirePackage{ulem}%
 \fi
